@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Logo.ico" type="image/x-icon">
+    <title>Ahorcado </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="img/Logo.ico" alt="logo" id="menu">
+    </header>
+    <main>
+        <section class="section1">
+            <h1 class="h1">Bienvenido Al Juego Del Ahorcado</h1>
+            <div class="botones">
+                <button class="btn-newGame" id="boton_inic">Juego Nuevo</button>
+                <button class="btn-newWord" id="boton_add">Agregar Palabras</button>
+            </div>
+        </section>
+        <section class="section2">
+            <h1 class="h1">Añadir palabra</h1>
+            <p class="cant-palabras"></p>
+            <div class="botones">
+                <input type="text" class="input" placeholder="Agrega una palabra">
+                <p class="advertencia">Solo palabras en mayuscula, sin acento y maximo 8 letras</p>
+                <div class="btnA">
+                    <button class="btn-agregar" id="boton_agregar">Agregar</button>
+                    <button class="btn-salirn">Salir</button>
+                </div>
+            </div>
+
+        </section>
+        <section class="section3">
+            <div>
+                <canvas width="1200" height="350" max-width="500" ></canvas>
+                <div class="letras_acertadas"></div>
+                <div class="letras_usadas"></div>
+            </div>
+            <div class="btn">
+                <button class="btn-jugarNuevo">jugar de Nuevo</button>
+                <button class="btn-salir">Salir</button>    
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a href="https://www.linkedin.com/in/fabrizio-masiero-405a32204/" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/linkedin-circled--v1.png" class="img"/></a>
+        Realizado por Fabrizio Masiero 
+    </footer>
+        <script src="script.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

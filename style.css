@@ -1,0 +1,197 @@
+body{
+    background: #74cab8;
+}
+#menu:hover{
+    cursor: pointer;
+}
+/*Menu*/
+.h1{
+    text-align: center;
+    font-size: 30px;
+    filter:drop-shadow(8px 8px 4px black)
+}
+.section1, .btn-newWord, .btn-newGame,.section2, .input,.btn-agregar {
+    display: block;
+    margin: auto;
+    flex-direction: row;
+    box-sizing: border-box;
+    overflow: hidden;
+    justify-content: center;
+    margin-top: 10px;
+    padding: auto;
+}
+.botones{
+    margin-top: 150px;
+    display: block;
+    flex-direction: column;
+
+}
+.btn-newGame{
+    background: #1843d6;
+    border-radius: 24px;
+    color: white;
+    border: 1px solid;
+    border-color: black;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 317px;
+    height: 104px;
+}
+.btn-newWord{
+    background: #385e9a;
+    border-radius: 24px;
+    color: white;
+    border: 1px solid;
+    border-color: black;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 250px;
+    height: 104px;
+}
+.btn-newGame:hover,.btn-newWord:hover, .btn-jugarNuevo:hover, .btn-agregar:hover, .btn-salir:hover,.btn-salirn:hover{
+    cursor: pointer;
+}
+/*Agregar palabra*/
+.cant-palabras{
+    text-align: center;
+    margin-top: 20px;
+}
+.input{
+    border-radius: 20px;
+    color: black;
+    border: 1px solid black;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 300px;
+    height: 200px;
+    margin-top: -80px;
+    padding-bottom: 100px;
+    padding-left: 15px;
+}
+.input::placeholder{
+    color: #1843d6;
+    text-align: center;
+}
+.advertencia{
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+}
+.btnA{
+    text-align: center;
+}
+.btn-agregar{
+    background: #1843d6;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid black;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 200px;
+    height: 50px;
+}
+.btn-salirn{
+    background: rgb(79, 77, 224);
+    border-radius: 10px;
+    color: white;
+    border: 1px solid black;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 180px;
+    height: 50px;
+    margin: 20px;
+}
+/*Juego*/
+.letras_acertadas{
+    text-align: center;
+}
+.letras_usadas{
+    height: 40px;
+    text-align: center;
+}
+.acertadas{
+    display: inline-block;
+    border-bottom: 3px solid blue;
+    width: 55px;
+    height: 55px;
+    margin: 10px 30px 10px 0;
+    text-align: center;
+    font-size: 48px;
+    vertical-align: bottom;
+}
+.usadas{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #495057;
+    font-size: 24px;
+    vertical-align: bottom;
+}
+.btn{
+    text-align: center;
+}
+.btn-jugarNuevo, .btn-salir{
+    background: #1843d6;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid black;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 200px;
+    height: 50px;
+}
+
+.footer1{
+    margin-top: 10%;
+    margin-left: 41%;
+    display: inline-flex;
+}
+.footer2{
+    margin-top: 1%;
+    margin-left: 41%;
+    display: inline-flex;
+}
+.footer3{
+    margin-top: 4%;
+    margin-left: 40%;
+    display: inline-flex;
+}
+.img{
+    margin-top: -15px;
+    padding-right: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    canvas{
+        height: 200px;
+    }
+    .footer1{
+        margin-top: 10%;
+        margin-left: 22%;
+        display: inline-flex;
+    }
+    .footer2{
+        margin-top: 2%;
+        margin-left: 22%;
+        display: inline-flex;
+    }
+    .footer3{
+        margin-top: 5%;
+        margin-left: 20%;
+        display: inline-flex;
+    }
+    .img{
+        margin-top: -15px;
+        padding-right: 10px;
+    }
+    .acertadas{
+        width: 30px;
+        height: 30px;
+        margin: 10px 10px 10px 0;
+        text-align: center;
+        font-size: 30px;
+      
+    }
+}
