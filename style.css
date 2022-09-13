@@ -102,6 +102,10 @@ body{
     margin: 20px;
 }
 /*Juego*/
+#canvas{
+    position: relative;
+    left: 100px;
+}
 .letras_acertadas{
     text-align: center;
 }
@@ -128,6 +132,47 @@ body{
     color: #495057;
     font-size: 24px;
     vertical-align: bottom;
+}
+.teclado-pantalla{
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #E5E5E5;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.key{
+    width: 15px;
+    display: inline-block;
+    color: #0A3871;
+    margin: 3px;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.key:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    color: #0A3871;
+    text-shadow: 1px 1px 1px #fff;
+}
+.key:active{
+    filter: contrast(2);
+}
+.teclado{
+    width: 70px;
+    height: 50px;
+}
+.teclado:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    color: #0a3871;
+}
+.ocultar{
+    display: none;
 }
 .btn{
     text-align: center;
@@ -165,7 +210,12 @@ body{
 
 @media screen and (max-width: 500px) {
     canvas{
-        height: 200px;
+        height: 300px;
+        width: 400px;
+    }
+    .teclas{
+        display: block;
+        padding: 15px;
     }
     .footer1{
         margin-top: 10%;
@@ -193,5 +243,11 @@ body{
         text-align: center;
         font-size: 30px;
       
+    }
+    .teclado{
+        margin-left: 220px;
+    }
+    .teclado-pantalla{
+        padding: 5px;
     }
 }

@@ -6,7 +6,7 @@ var btn_agregar = document.getElementById("boton_agregar");
 var menu = document.getElementById("menu");
 const palabras = ["LORO", "PERRO", "BOTELLA", "TRABAJO", "CAMION", "CELULAR","BEBE","CASA","PELADO","CAMA","MUEBLE","LAPICERA","CORDOBA","PAIS","SAPO","CUADRO","BARCO","PAPEL",];
 var textInput = document.querySelector(".input");
-var pantalla = document.querySelector("canvas");
+var pantalla = document.querySelector("#canvas");
 var pincel = pantalla.getContext("2d");
 const letrasAcertadas = document.querySelector(".letras_acertadas");
 const letrasUsadas = document.querySelector(".letras_usadas");
@@ -16,6 +16,13 @@ var btn_salirn = document.querySelector(".btn-salirn");
 var footer = document.querySelector("footer");
 var cant_palabras = document.querySelector(".cant-palabras"); 
 
+//
+var tecladoPantalla = document.querySelector(".teclado-pantalla");
+var teclado = document.querySelector(".teclado");
+var listaTeclas = document.querySelectorAll(".key");
+
+
+//
 cant_palabras.innerHTML = "Hay una cantidada de " + palabras.length + " palabras";
 
 footer.setAttribute("class","footer1");
@@ -36,7 +43,7 @@ function cambiarMenu(){
     estado = 0;
     contadorAciertos = 0;
     window.removeEventListener(`keyup`, captuarLetras);
-
+    ocultarTeclado()
     footer.setAttribute("class","footer1")
 }
 function cambiarAgregrar(){
@@ -50,7 +57,7 @@ function cambiarAgregrar(){
     window.removeEventListener(`keyup`, captuarLetras);
 
     footer.setAttribute("class","footer2")
-
+    ocultarTeclado();
 
 }
 function cambiarIniciar(){
@@ -58,12 +65,12 @@ function cambiarIniciar(){
     document.querySelector(".section3").style.display="block";
     footer.setAttribute("class","footer3")
 
-    pincel.clearRect(0,0,1200,500);
+    pincel.clearRect(0,0,1200,350);
 
     pincel.fillStyle = "black";
-    pincel.fillRect(550,30,10,300)
-    pincel.fillRect(450,330,300,10)
-    pincel.fillRect(550,30,120,10)
+    pincel.fillRect(500,30,10,300)
+    pincel.fillRect(400,330,300,10)
+    pincel.fillRect(500,30,180,10)
     pincel.fillRect(670,30,10,50)
 
     adivinadas = [];
@@ -76,7 +83,11 @@ function cambiarIniciar(){
     console.log(aleatorio)
 
     window.addEventListener(`keyup`, captuarLetras);
-    
+    window.addEventListener(`keydown`, activarTeclas);
+
+    teclado.onclick = mostrarTeclado;
+    habilitarTeclas();
+    activarTeclas();
     Graficar();
 }
 function agregarPalabra(){
@@ -227,6 +238,10 @@ function Graficar() {
             timer: "3000",
             showConfirmButton: false    
         })
+        anularTeclado();
+        anularTecladoPantalla();
+        window.removeEventListener(`keyup`, captuarLetras);
+
     }
 }
 function captuarLetras(teclaPresionada) {
@@ -258,6 +273,82 @@ function captuarLetras(teclaPresionada) {
         }
     }
 }
+
+function completarBloque(letra){
+    var lista = letrasAcertadas.childNodes;
+    var i = 0;
+    var letraEncontrada = false;
+    repetidas = []
+    
+    if(!erradas.includes(letra)){
+        for(var elemento of lista){
+            if(letra == aleatorio[i]){
+                elemento.textContent = letra;
+                letraEncontrada = true;
+                contadorAciertos++;
+                adivinadas.push(letra);
+            }
+            i++;
+        }
+        if(!erradas.includes(letra) && letraEncontrada == false){
+            erradas.push(letra);
+            estado++
+        }
+    }
+    Graficar();
+}
+
+function validarLetras(letra){
+    if(letra.keyCode >=65 && letra.keyCode <= 90){
+        return letra.key.toUpperCase();
+    }else{
+        return "";
+    }
+}
+
+function activarTecladoPantalla(leetra){
+   letraActual = leetra;
+    completarBloque(letraActual);
+}
+function mostrarTeclado(){
+    teclado.classList.add("ocultar");
+    tecladoPantalla.classList.remove("ocultar");
+}
+
+function ocultarTeclado(){
+    teclado.classList.remove("ocultar");
+    tecladoPantalla.classList.add("ocultar");
+    teclado.onclick = null;
+}
+function anularTecladoPantalla(){
+    for(var tecla of listaTeclas){
+        tecla.removeEventListener("click",habilitarTeclado)
+    }
+}
+
+function habilitarTeclas(){
+    for(var tecla of listaTeclas){
+        tecla.addEventListener("click",habilitarTeclado);
+    }
+}
+
+function habilitarTeclado(){
+    activarTecladoPantalla(this.textContent);
+}
+function activarTeclas(){
+    window.addEventListener("keydown",activarTeclado)
+}
+function activarTeclado(event){
+    letraActual = validarLetras(event);
+    completarBloque(letraActual);
+}
+function anularTeclado(){
+    window.removeEventListener("keydown",activarTeclado);
+}
+
+ teclado.onclick = null;
+ //
+
 
 btn_add.addEventListener("click", cambiarAgregrar);
 btn_inic.addEventListener("click", cambiarIniciar);
