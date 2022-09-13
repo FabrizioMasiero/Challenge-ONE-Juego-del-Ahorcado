@@ -68,9 +68,9 @@ function cambiarIniciar(){
     pincel.clearRect(0,0,1200,350);
 
     pincel.fillStyle = "black";
-    pincel.fillRect(500,30,10,300)
+    pincel.fillRect(550,30,10,300)
     pincel.fillRect(400,330,300,10)
-    pincel.fillRect(500,30,180,10)
+    pincel.fillRect(550,30,120,10)
     pincel.fillRect(670,30,10,50)
 
     adivinadas = [];
