@@ -80,8 +80,6 @@ function cambiarIniciar(){
     
     aleatorio = palabras[Math.floor(Math.random()* palabras.length)];
 
-    console.log(aleatorio)
-
     window.addEventListener(`keyup`, captuarLetras);
     window.addEventListener(`keydown`, activarTeclas);
 
